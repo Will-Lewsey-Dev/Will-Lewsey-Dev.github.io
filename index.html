@@ -1,113 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game Development Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>William Lewsey</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            background-color: #3a0000;
+            color: #f5f5f5;
+            font-family: 'Georgia', serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            background: #0D1117;
-            color: #C9D1D9;
-            line-height: 1.6;
-        }
-        header {
             text-align: center;
-            padding: 4rem 2rem;
-        }
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
         }
-        .game-card {
-            background: #161B22;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+        .game {
+            background: #600000;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
         }
-        .game-card:hover {
-            transform: translateY(-8px);
+        h1, h2 {
+            color: #ffcccb;
         }
-        .game-card img {
+        .game video {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
         }
-        .game-card h2 {
-            margin-top: 1rem;
-        }
-        .game-card a {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: #238636;
-            color: white;
-            text-decoration: none;
+        .section {
+            margin-top: 15px;
+            padding: 10px;
+            background: #450000;
             border-radius: 5px;
         }
-        .game-card a:hover {
-            background: #2EA043;
+        .mePic {
+            border-radius: 100%;
         }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #8B949E;
+        a {
+            color: #ff6e6b;
         }
     </style>
 </head>
-
 <body>
-
-    <header>
-        <h1>My Game Development Portfolio</h1>
-        <p>Explore the games I've created this year!</p>
-    </header>
-
     <div class="container">
-        <!-- Game 1 -->
-        <div class="game-card">
-            <img src="https://via.placeholder.com/800x400" alt="Game 1 Screenshot">
-            <h2>Game Title 1</h2>
-            <p>A short description of your first game. Mention the technologies used (e.g., Unity, Unreal Engine, etc.) and key features.</p>
-            <a href="https://your-game-link.com" target="_blank">Play Now</a>
-        </div>
+        <img class="mePic" height="200" src="mePic.jpg">
 
-        <!-- Game 2 -->
-        <div class="game-card">
-            <img src="https://via.placeholder.com/800x400" alt="Game 2 Screenshot">
-            <h2>Game Title 2</h2>
-            <p>A short description of your second game. Include what makes it unique and any challenges you overcame during development.</p>
-            <a href="https://your-game-link.com" target="_blank">Play Now</a>
+        <h1>Game Development Portfolio (2024-2025)</h1>
+        <h2>William Lewsey</h2>
+        
+        <div class="game">
+            <h1>You Are The Power Source</h1>
+            <video controls>
+                <source src="game1.mp4" type="video/mp4">
+            </video>
+            <div class="section">
+                <h2>About This Game</h2>
+                <p>This is a game about two robots, B.I.G and SMA-11, escaping a factory. They must work together to solve puzzles with each of their sizes. The player is able to control each of them by switching between them.</p><a href="https://williamlewsey.itch.io/you-are-the-power-source">Itch.io Page</a>
+            </div>
+            <div class="section">
+                <h2>Development</h2>
+                <p>This project was worked on by myself and four classmates. We initially were quite confident that it would be a simple job because there were many of us working together. We used GitHub as source control and we made several branches for each section of development. However, this did not work entirely as we had planned. Using GitHub proved quite troubling at times as we did not have the best discipline in terms of collating our work together. We did not fully understand that we were each trying to merge two different things together. However, I took a progressive step by suggesting that we periodically combine all the work we had done so far together focusing purely on making sure we have a good foothold to work on the next sections.</p>
+                <p>I was in charge of creating the player mechanics: interaction, switching, and movement. I believe I did a suitable job with this. However, I did end up working on other aspects of the game as per request. I delved into making puzzles as well as sound design. As development progressed, the group decided that we wanted to include voice acting in the game. I wrote up a script, and myself and another recorded them together. I edited the clips using Audacity to sound robotic to fit the characters.</p>
+                <p>Overall, this project was successful but we collectively feel as if we could have expanded on it. The project as it is feels quite short, and some sections could have been more fleshed out. We did set our deadline considering that more games would be made afterwards.</p>
+            </div>
+            <div class="section">
+                <h2>Successes</h2>
+                <li>We created a full game, albeit short</li>
+                <li>The game is immersive and the environment is consitent and full</li>
+                <li>We worked together as a group and aided each other consistently</li>
+                <li>We were thorough in our legal declarations and credits</li>
+                <h2>Failures</h2>
+                <li>We could have utilised our time better by making a project roadmap</li>
+                <li>We lacked in communication, being limited to only classtimes</li>
+                <li>There were a few bugs in the game that we did not find a fix for.</li>
+                <p></p>
+            </div>
         </div>
+        
+        <hr>
 
-        <!-- Game 3 -->
-        <div class="game-card">
-            <img src="https://via.placeholder.com/800x400" alt="Game 3 Screenshot">
-            <h2>Game Title 3</h2>
-            <p>A short description of your third game. Highlight gameplay mechanics, design choices, and how this project advanced your skills.</p>
-            <a href="https://your-game-link.com" target="_blank">Play Now</a>
+        <div class="game">
+            <h1>Game of Law</h1>
+            <video controls>
+                <source src="game2.mp4" type="video/mp4">
+            </video>
+            <div class="section">
+                <h2>About This Game</h2>
+                <p>This is a game about John Law, CEO of a company dedicated to ensuring criminals are given a fair sentence. But the employees at the company that you own seem to be the ones pulling the strings. You must  stay on your best performance.</p> <a href="https://williamlewsey.itch.io/game-of-law">Itch.io Page</a>
+            </div>
+            <div class="section">
+                <h2>Development</h2>
+                <p>This project was a pair project between me and a close classmate. We decided after making You Are The Power Source that cutting down team size was a good idea to try out. We said that we'd work on the whole thing together. Since I had been working on development in the last game, we agreed it would be beneficial for me to help with developing mechanics and gameplay of the game, and I would work on the level design. This was the case initially. I developed the first couple maps, and enjoyed it a lot. I hadn't been in charge of environments beforehand and it was good to make the large landscape seen in game. </p>
+                <p>About halfway into development, we decided to change the gameplay we had planned completely.  We wanted a game where you would pass or deny bizarre different laws that were being proposed to you. We were going to make it so that society would change around you depending on how happy society was. This would change upon passing or denying laws. We changed the gameplay to have the player judge the fairness of a criminal's prison sentence swapped roles. I worked on the core gameplay loop and my teammate worked on level design for the last level. I ended up experimenting with how the gameplay would work and all my tests worked out well. </p>
+                <p>We had started this work just before Christmas break, and no work was put towards the project during Christmas. This also happened during other work that we had at the same time. We had around a month break whilst we worked on a different project.</p>
+                <p>I believe that the project was a good success as it is a full game with two endings and a semi-random gameplay loop.</p>
+            </div>
+            <div class="section">
+                <h2>Successes</h2>
+                <li>We made a full game with endings and an repeating gameplay loop</li>
+                <li>We changed the gameplay idea and made it work </li>
+                <li>We were able to limit ourselves</li>
+                <h2>Failures</h2>
+                <li>We had two periods of no work being done</li>
+                <li>We could have been more organised with who was doing what and when</li>
+                <li>I needed to document my work more</li>
+            </div>
+            <div class="section">
+                <h2>Future Plans</h2>
+                <p>This has not been discussed with my teammate, but I am planning on refining this game and expanding the gameplay a bit. Currently the gameplay feels repetitive and the system behind the gameplay isn't efficient or ideal.</p>
+            </div>
         </div>
+    
+        <hr>
+
+        <div class="game">
+            <h1>Ad Somnum</h1>
+            <video controls>
+                <source src="AdSomnumTrailer.mp4" type="video/mp4">
+            </video>
+            <div class="section">
+                <h2>What Is This Game?</h2>
+                <p>In this game, you play as a pharmacist in a parallel world at the end stages of a war. This world is inhabited by <i>pseudohumans</i>, creatures that look like humans but function completely differently. You are placed in a subterranean hospital and must deal with an influx of patients on the edge of death. They need sedatives in order to live. Will you be able to handle your wing?</p>
+                <p>This game is releasing on itch.io soon, and does not have a download page. For now, here is a <a href="https://drive.google.com/file/d/1OPYwr2V5-KZuYCweYV8oo_PXJQ08xi8b/view?usp=sharing">Google Drive</a> page with the most up to date version.</p>
+            </div>
+            <div class="section">
+                <h2>Development</h2>
+                <p>This was my first solo game in the course so far. I thought I'd be nervous going into it, but I was the most excited I have been making a game. The designs for this game have been in my mind for a long while and I finally had the chance to make it.</p>
+                <p>I used GitHub and was wondering how I should do it if I was by myself. I thought about not branching at all and just committing and pushing to main a lot, but I did make branches for three things: Hospital, Gameplay, and Cherry. Hospital was the branch for level design, Gameplay was the actors and inner workings of the game, and the Cherry branch was for when the game was essentially done, and I wanted to add more to it. I made issues for many parts of development I thought to be important enough. However, towards the end of development I made issues a lot less as I was beginning to get very stressed about the deadline of not only the game, but of other projects as well.</p>
+                <p>I made a project roadmap for the game set for three weeks. Each week had a task. Week one was for environment design and development, week two was for gameplay development and week three was for final additions such as sounds. This roadmap went excellently and gave me a good plan for what I needed to get done and when. However, some things I had to switch around because it was better for long-term development. For example, I had to pull back making models and animations because it would make general development easier later when making Cherry stuff.</p>
+                <p>I am very happy with this project.</p>
+                <p>I also managed to pull off making a trailer for the game which I was incredibly proud of.</p>
+            </div>
+            <div class="section">
+                <h2>Successes</h2>
+                <li>I made a full game by myself with very little bugs</li>
+                <li>I was on top of the legal side of the project</li>
+                <li>I kept on top of documentation mostly</li>
+                <h2>Failures</h2>
+                <li>Towards the end of the project I lost my drive to document</li>
+                <li>I had not implemented everything I wanted to, such as mirrors</li>
+            </div>
+            <div class="section">
+                <h2>Future Plans</h2>
+                <p>This game is set to be released on itch.io soon. I am planning to add content updates to the game quite regularly after it's full release in the coming weeks.</p>
+            </div>
+        </div>
+        <p>&copy; 2025 William Lewsey | <a class="githubLink" href="https://github.com/Will-Lewsey-Dev">GitHub</a></p>
     </div>
-
-    <footer>
-        &copy; 2025 Your Name | <a href="https://github.com/your-username" style="color: #58A6FF;">GitHub</a>
-    </footer>
-
 </body>
-
 </html>
