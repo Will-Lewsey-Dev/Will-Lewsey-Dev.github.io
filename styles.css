@@ -1,8 +1,24 @@
 body {
     background-color: black;
+    font-size: 16px;
 }
 
 p, h1 {
     font-family: 'Courier New', Courier, monospace;
     color: lime;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }

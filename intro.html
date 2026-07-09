@@ -6,48 +6,65 @@
     <link rel="stylesheet" href="styles.css">
     <title>William Lewsey</title>
 </head>
-<body>
-    
-    <body onload=drawImage()>
+<body onload=introIdentity()>
 
-    <p id="introText1"></p>
-    <p id="introText2"></p>
-    <pre><p id="introImage"></p></pre>
+    <pre><p id="introText1"></p></pre>
+    <!-- <pre><p id="introText2"></p></pre> -->
 
     <script>
-        var i = 0;
-        var textSection1 = "aaaaaaaaaaaaaaaaaaaaaa";
-        var textSection2 = "bbbbbbbbbbbbbbbbbbbbbb";
-        var imageSection = "############################-################################\n###################### ## ##   +#############################\n######################+  #   +## +#########+#-+##############\n###################-#-#  +##+. #.############ .-#############\n################# #+##+#.   . ####+#### #-+-#- # ############\n################# ##-+ - # ##-#-.# ##########-+#+- #-########\n##################.-###.#+++-.+###-##.######.#-#####+########\n########.########     .. # -+-+########+##  ###.### #  ######\n####- #-# +- # #### .     #-   ---.#.#--. +##-##+##++ +-#####\n### + +#   --- ###+  -      + . ####-##.#- #+-+##-#..#   -###\n### + +   + # +##--#  . .- .#############+#### - # #       ##\n#+ ###    . -+.+. +#. #. ###-##########-##+--+###.     ---+ #\n####. - #-. ---##.-  #- -##.#########--- +##- #.. # + . -# +#\n##-# -###.# +-..--#+#. #+#######+-##.# #### ##..         + +#\n#+# ##+##     . ..  +-+#-..-. ....#-#+##### #####.##  .   -.#\n####. ##. #. #      ++##.### .   #.+##+--#.-. .++.-###   .- +\n#-#.##   + .  +. -   ## +###### #.# .++.#-# #. +- .#-#.  -#-#\n++-++##-# ++ . .-   + .. # ####++-.. # . +#  .. -. .+.+## #--\n--##+    .-..#     .#-+####-.##-.#.----#++        # .-  #-.++\n..  - ##+#    ++    +.-+-#. -#+-+##..  ..  .## .+  . -.  +.++\n+# #.  - . +##+#--#-+-.++  ##-- .#++.--.  .  .-.++    - .####\n####+ .  .-###.  #    +.. +.   ##  ...--. . .+   .+ -+ -.+##.\n#+  . -  -+#-+-+     - .-.+- + -##-+  + -+.--#+... .#.+#-+-##\n##   #       ##+#   ### -#   #++ -## +.-  .-+. -- ## #. +-###\n##      ###+--#+-+-++..- -#  .+ -####  ...--++++#-#- .+++ +##\n##      -####+++++++----+++ #-+ . +-+++---+-+#### +#.+- ##.##\n##      -##########+#+#++##  ###+ -#.+ -++##########+.+.- ###\n##-      #################+ #####- #+#.#########+. .---#.+###\n####     ################+ -###### -+#++##-#.##-.-### .--####\n#####    ###############-# ######## + - ###-#...##### ++#####\n######   .############### ########## -+####++####### +#######\n#######  ############## ###########+#-.###-###### +#++#######\n###### ##-###+   -. ####+-#+#########+.#############+########";
-        var speed = 10;
-        // var audio = new Audio("untitled.mp3");
+        var textSection1 = "Name: William Lewsey\nDate of Birth: 08/06/2005\nLocation: [REDACTED]";
 
-        function introTypeout() {
-            if (i < textSection1.length) {
-                document.getElementById("introText1").innerHTML += textSection1.charAt(i);
-                i++;
-                // audio.play();
-                setTimeout(introTypeout, speed);
-            } 
-        }
+        var textSection2 = "Hello";
         
+        var i = 0;
+        var speed = 10;
+        //var audio = new Audio("untitled.mp3");
+
         function introSection2() {
             if (i < textSection2.length) {
                 document.getElementById("introText2").innerHTML += textSection2.charAt(i);
                 i++;
-                // audio.play();
-                setTimeout(introTypeout, speed);
-            } 
+                //audio.play();
+                setTimeout(introSection2, speed);
+            }
         }
 
-        function drawImage() {
-            if (i < imageSection.length) {
-                document.getElementById("introImage").innerHTML += imageSection.charAt(i);
-                i++;
-                // audio.play();
-                setTimeout(drawImage, 1);
-            } 
+        function showImage(src, width, height) {
+            var img = document.createElement("img");
+            img.src = src;
+            img.width = width;
+            img.height = height;
+            document.body.appendChild(img);
+
+             var pre = document.createElement("pre");
+            var p = document.createElement("p");
+            p.id = "introText2";
+            pre.appendChild(p);
+            document.body.appendChild(pre);
+
+            i = 0;
+            setTimeout(introSection2, 500);
         }
+
+        function introIdentity() {
+            if (i < textSection1.length) {
+                document.getElementById("introText1").innerHTML += textSection1.charAt(i);
+                i++;
+                //audio.play();
+                setTimeout(introIdentity, speed);
+            } else {
+                setTimeout(showImage, 500, "imSoGreen.png", 200, 200);
+            }
+        } 
+
+        // function drawASCIIImage() {
+        //     if (i < imageSection.length) {
+        //         document.getElementById("introImage").innerHTML += imageSection.charAt(i);
+        //         i++;
+        //         //audio.play();
+        //         setTimeout(drawASCIIImage, 1);
+        //     } 
+        // }
 
     </script>
 
