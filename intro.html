@@ -8,63 +8,123 @@
 </head>
 <body onload=introIdentity()>
 
-    <pre><p id="introText1"></p></pre>
-    <!-- <pre><p id="introText2"></p></pre> -->
-
     <script>
-        var textSection1 = "Name: William Lewsey\nDate of Birth: 08/06/2005\nLocation: [REDACTED]";
+        var textIdentityBuilt = false;
+        var textHumour1Built = false;
+        var textSection2Built = false;
+        var textSection3Built = false;
 
+        var textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
+        var textHumour1 = "Looking good."
         var textSection2 = "Hello";
+        var textSection3 = "Test";
         
         var i = 0;
         var speed = 10;
         //var audio = new Audio("untitled.mp3");
 
-        function introSection2() {
-            if (i < textSection2.length) {
-                document.getElementById("introText2").innerHTML += textSection2.charAt(i);
-                i++;
-                //audio.play();
-                setTimeout(introSection2, speed);
+        function introSection3() {
+            if (textSection3Built == false) {
+                var pre = document.createElement("pre");
+                var p = document.createElement("p");
+                p.id = "introText3";
+                pre.appendChild(p);
+                document.body.appendChild(pre);
+                textSection3Built = true;
+                introSection3();
+            } else {
+                if (i < textSection3.length) {
+                    document.getElementById("introText3").innerHTML += textSection3.charAt(i);
+                    i++;
+                    //audio.play();
+                    setTimeout(introSection3, speed);
+                }
             }
         }
 
-        function showImage(src, width, height) {
-            var img = document.createElement("img");
-            img.src = src;
-            img.width = width;
-            img.height = height;
-            document.body.appendChild(img);
+        function introSkills() {
+            if (textSection2Built == false) {
+                var pre = document.createElement("pre");
+                var p = document.createElement("p");
+                p.id = "introText2";
+                pre.appendChild(p);
+                document.body.appendChild(pre);
+                textSection2Built = true;
+                introSkills();
+            } else {
+                if (i < textSection2.length) {
+                    document.getElementById("introText2").innerHTML += textSection2.charAt(i);
+                    i++;
+                    //audio.play();
+                    setTimeout(introSkills, speed);
+                } else {
+                    i = 0;
+                    setTimeout(introSection3, 500);
+                }
+            }
+        }
 
-             var pre = document.createElement("pre");
-            var p = document.createElement("p");
-            p.id = "introText2";
-            pre.appendChild(p);
-            document.body.appendChild(pre);
+        function introHumour1() {
+            if (textHumour1Built == false) {
+                var preIntroHumour1 = document.createElement("pre");
+                var pIntroHumour1 = document.createElement("p");
+                pIntroHumour1.id = "idIntroHumour1";
+                preIntroHumour1.appendChild(pIntroHumour1);
+                document.body.appendChild(preIntroHumour1);
+                textHumour1Built = true;
+                introHumour1();
+            } else {
+                if (i < textHumour1.length) {
+                    document.getElementById("idIntroHumour1").innerHTML += textHumour1.charAt(i);
+                    i++;
+                    //audio.play();
+                    setTimeout(introHumour1, speed);
+                } else {
+                    setTimeout(introPhoto, 500, "imSoGreen.png", 200, 200);
+                }
+            }
+        }
+
+        function introPhoto(src, width, height) {
+            var imgIntroPhoto = document.createElement("img");
+            imgIntroPhoto.src = src;
+            imgIntroPhoto.width = width;
+            imgIntroPhoto.height = height;
+            document.body.appendChild(imgIntroPhoto);
+
+            // Create image
+            var preIntroPhoto = document.createElement("pre");
+            var pIntroPhoto = document.createElement("p");
+            pIntroPhoto.id = "idIntroPhoto";
+            preIntroPhoto.appendChild(pIntroPhoto);
+            document.body.appendChild(preIntroPhoto);
 
             i = 0;
-            setTimeout(introSection2, 500);
+            setTimeout(humor1, 1000);
         }
 
         function introIdentity() {
-            if (i < textSection1.length) {
-                document.getElementById("introText1").innerHTML += textSection1.charAt(i);
-                i++;
-                //audio.play();
-                setTimeout(introIdentity, speed);
+            // Create first text
+            if (textIdentityBuilt == false) {
+                var preIntroIdentity = document.createElement("pre");
+                var pIntroIdentity = document.createElement("p");
+                pIntroIdentity.id = "idIntroIdentity";
+                preIntroIdentity.appendChild(pIntroIdentity);
+                document.body.appendChild(preIntroIdentity);
+                textIdentityBuilt = true;
+                introIdentity();
             } else {
-                setTimeout(showImage, 500, "imSoGreen.png", 200, 200);
+                if (i < textIdentity.length) {
+                    document.getElementById("idIntroIdentity").innerHTML += textIdentity.charAt(i);
+                    i++;
+                    //audio.play();
+                    setTimeout(introIdentity, speed);
+                } else {
+                    setTimeout(introPhoto, 500, "imSoGreen.png", 200, 200);
+                }
             }
+            
         } 
-
-        // function drawASCIIImage() {
-        //     if (i < imageSection.length) {
-        //         document.getElementById("introImage").innerHTML += imageSection.charAt(i);
-        //         i++;
-        //         //audio.play();
-        //         setTimeout(drawASCIIImage, 1);
-        //     } 
-        // }
 
     </script>
 
