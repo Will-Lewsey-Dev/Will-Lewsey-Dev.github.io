@@ -1,134 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>William Lewsey</title>
-</head>
-<body onload="introIdentity()">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>William Lewsey</title>
+    </head>
+    <body>
 
-    <script>
-        let textIdentityBuilt = false;
-        let textHumour1Built = false;
-        let textSummaryBuilt = false;
-        let textSection3Built = false;
+        <main id="content">
 
-        const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
-        const textHumour1 = "Looking good."
+            <script>
 
-        const textSummary = "Making games alone, I have a hand in many aspects of both design and development.";
-        const textSection3 = "Test";
-        
-        let i = 0;
-        let speed = 10;
-        //let audio = new Audio("untitled.mp3");
+                const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
+                const textHumour1 = "Looking good.";
 
-        function introSection3() {
-            if (textSection3Built == false) {
-                const pre = document.createElement("pre");
-                const p = document.createElement("p");
-                p.id = "introText3";
-                pre.appendChild(p);
-                document.body.appendChild(pre);
-                textSection3Built = true;
-                introSection3();
-            } else {
-                if (i < textSection3.length) {
-                    document.getElementById("introText3").textContent += textSection3.charAt(i);
-                    i++;
-                    //audio.play();
-                    setTimeout(introSection3, speed);
+                const textSummary = "Making games alone, I have a hand in many aspects of both design and development.";
+                const textSection3 = "Test";
+
+                function introPhoto(src, width, height) {
+                    const imgIntroPhoto = document.createElement("img");
+                    imgIntroPhoto.src = src;
+                    imgIntroPhoto.width = width;
+                    imgIntroPhoto.height = height;
+                    document.body.appendChild(imgIntroPhoto);
                 }
-            }
-        }
 
-        function introSummary() {
-            if (textSummaryBuilt == false) {
-                const preIntroSummary = document.createElement("pre");
-                const pIntroSummary = document.createElement("p");
-                pIntroSummary.id = "idIntroSummary";
-                preIntroSummary.appendChild(pIntroSummary);
-                document.body.appendChild(preIntroSummary);
-                textSummaryBuilt = true;
-                introSummary();
-            } else {
-                if (i < textSummary.length) {
-                    document.getElementById("idIntroSummary").textContent += textSummary.charAt(i);
-                    i++;
-                    //audio.play();
-                    setTimeout(introSummary, speed);
-                } else {
-                    i = 0;
-                    setTimeout(introSection3, 500);
+
+                function typeText(id, text, speed, callback) {
+                    const p = document.createElement("p");
+                    p.id = id;
+
+                    const pre = document.createElement("pre");
+                    pre.appendChild(p);
+                    document.body.appendChild(pre);
+
+                    let i = 0;
+
+                    function type() {
+                        if (i < text.length) {
+                            p.textContent += text.charAt(i++);
+                            setTimeout(type, speed);
+                        } else if (callback) {
+                            callback();
+                        }
+                    }
+
+                    type();
                 }
-            }
-        }
 
-        function introHumour1() {
-            if (textHumour1Built == false) {
-                const preIntroHumour1 = document.createElement("pre");
-                const pIntroHumour1 = document.createElement("p");
-                pIntroHumour1.id = "idIntroHumour1";
-                preIntroHumour1.appendChild(pIntroHumour1);
-                document.body.appendChild(preIntroHumour1);
-                textHumour1Built = true;
-                introHumour1();
-            } else {
-                if (i < textHumour1.length) {
-                    document.getElementById("idIntroHumour1").textContent += textHumour1.charAt(i);
-                    i++;
-                    //audio.play();
-                    setTimeout(introHumour1, speed);
-                } else {
-                    i = 0;
-                    setTimeout(introSummary, 1000);
-                }
-            }
-        }
+                typeText("identity", textIdentity, 10, () => {
+                    introPhoto("imSoGreen.png", 200, 200);
 
-        function introPhoto(src, width, height) {
-            const imgIntroPhoto = document.createElement("img");
-            imgIntroPhoto.src = src;
-            imgIntroPhoto.width = width;
-            imgIntroPhoto.height = height;
-            document.body.appendChild(imgIntroPhoto);
+                    setTimeout(() => {
+                        typeText("humour", textHumour1, 10, () => {
+                            setTimeout(() => {
+                                typeText("summary", textSummary, 10, () => {
+                                    setTimeout(() => {
+                                        typeText("section3", textSection3, 10);
+                                    }, 500);
+                                });
+                            }, 1000);
+                        });
+                    }, 1000);
+                });
 
-            // Create image
-            const preIntroPhoto = document.createElement("pre");
-            const pIntroPhoto = document.createElement("p");
-            pIntroPhoto.id = "idIntroPhoto";
-            preIntroPhoto.appendChild(pIntroPhoto);
-            document.body.appendChild(preIntroPhoto);
-
-            i = 0;
-            setTimeout(introHumour1, 1000);
-        }
-
-        function introIdentity() {
-            // Create first text
-            if (textIdentityBuilt == false) {
-                const preIntroIdentity = document.createElement("pre");
-                const pIntroIdentity = document.createElement("p");
-                pIntroIdentity.id = "idIntroIdentity";
-                preIntroIdentity.appendChild(pIntroIdentity);
-                document.body.appendChild(preIntroIdentity);
-                textIdentityBuilt = true;
-                introIdentity();
-            } else {
-                if (i < textIdentity.length) {
-                    document.getElementById("idIntroIdentity").textContent += textIdentity.charAt(i);
-                    i++;
-                    //audio.play();
-                    setTimeout(introIdentity, speed);
-                } else {
-                    setTimeout(introPhoto, 500, "imSoGreen.png", 200, 200);
-                }
-            }
-            
-        } 
-
-    </script>
-
-</body>
+            </script>
+        </main>
+    </body>
 </html>
