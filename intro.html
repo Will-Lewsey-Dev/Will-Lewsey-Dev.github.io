@@ -7,65 +7,69 @@
         <title>William Lewsey</title>
     </head>
     <body>
+        <script>
 
-        <main id="content">
+            const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
+            const textHumour1 = "Looking good.";
 
-            <script>
+            const textSummary = "Making games alone, I have a hand in many aspects of both design and development.";
+            const textSection3 = "Test";
 
-                const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
-                const textHumour1 = "Looking good.";
+            function wait(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
 
-                const textSummary = "Making games alone, I have a hand in many aspects of both design and development.";
-                const textSection3 = "Test";
+            function introPhoto(src, width, height) {
+                const imgIntroPhoto = document.createElement("img");
+                imgIntroPhoto.src = src;
+                imgIntroPhoto.width = width;
+                imgIntroPhoto.height = height;
+                document.body.appendChild(imgIntroPhoto);
+            }
 
-                function introPhoto(src, width, height) {
-                    const imgIntroPhoto = document.createElement("img");
-                    imgIntroPhoto.src = src;
-                    imgIntroPhoto.width = width;
-                    imgIntroPhoto.height = height;
-                    document.body.appendChild(imgIntroPhoto);
-                }
-
-
-                function typeText(id, text, speed, callback) {
-                    const p = document.createElement("p");
-                    p.id = id;
-
+            function typeText(id, text, speed) {
+                return new Promise(resolve => {
                     const pre = document.createElement("pre");
-                    pre.appendChild(p);
+                    pre.id = id;
+                    pre.classList.add("typing");
                     document.body.appendChild(pre);
 
                     let i = 0;
 
                     function type() {
                         if (i < text.length) {
-                            p.textContent += text.charAt(i++);
+                            pre.textContent += text.charAt(i);
+                            i++;
                             setTimeout(type, speed);
-                        } else if (callback) {
-                            callback();
+                        } else {
+                            pre.classList.remove("typing");
+                            resolve();
                         }
                     }
 
                     type();
-                }
-
-                typeText("identity", textIdentity, 10, () => {
-                    introPhoto("imSoGreen.webp", 200, 200);
-
-                    setTimeout(() => {
-                        typeText("humour", textHumour1, 10, () => {
-                            setTimeout(() => {
-                                typeText("summary", textSummary, 10, () => {
-                                    setTimeout(() => {
-                                        typeText("section3", textSection3, 10);
-                                    }, 500);
-                                });
-                            }, 1000);
-                        });
-                    }, 1000);
                 });
+            }
 
-            </script>
-        </main>
+            async function startIntro() {
+                await typeText("identity", textIdentity, 10);
+
+                introPhoto("imSoGreen.webp", 200, 200);
+
+                await wait(1000);
+
+                await typeText("humour", textHumour1, 10);
+
+                await wait(1000);
+
+                await typeText("summary", textSummary, 10);
+
+                await wait(500);
+
+                await typeText("section3", textSection3, 10);
+            }
+
+            startIntro();
+        </script>
     </body>
 </html>

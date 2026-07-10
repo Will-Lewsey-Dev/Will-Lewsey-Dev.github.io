@@ -9,11 +9,24 @@ p, h1 {
 }
 
 pre {
+    font-family: 'Courier New', Courier, monospace;
+    color: lime;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+}
+
+pre.typing::after {
+    content: "█";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
 .container {
