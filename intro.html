@@ -11,12 +11,13 @@
     <script>
         let textIdentityBuilt = false;
         let textHumour1Built = false;
-        let textSkillsBuilt = false;
+        let textSummaryBuilt = false;
         let textSection3Built = false;
 
         const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
         const textHumour1 = "Looking good."
-        const textSkills = "Hello";
+
+        const textSummary = "Making games alone, I have a hand in many aspects of both design and development.";
         const textSection3 = "Test";
         
         let i = 0;
@@ -42,21 +43,21 @@
             }
         }
 
-        function introSkills() {
-            if (textSkillsBuilt == false) {
-                const preIntroSkills = document.createElement("pre");
-                const pIntroSkills = document.createElement("p");
-                pIntroSkills.id = "idIntroSkills";
-                preIntroSkills.appendChild(pIntroSkills);
-                document.body.appendChild(preIntroSkills);
-                textSkillsBuilt = true;
-                introSkills();
+        function introSummary() {
+            if (textSummaryBuilt == false) {
+                const preIntroSummary = document.createElement("pre");
+                const pIntroSummary = document.createElement("p");
+                pIntroSummary.id = "idIntroSummary";
+                preIntroSummary.appendChild(pIntroSummary);
+                document.body.appendChild(preIntroSummary);
+                textSummaryBuilt = true;
+                introSummary();
             } else {
-                if (i < textSkills.length) {
-                    document.getElementById("idIntroSkills").textContent += textSkills.charAt(i);
+                if (i < textSummary.length) {
+                    document.getElementById("idIntroSummary").textContent += textSummary.charAt(i);
                     i++;
                     //audio.play();
-                    setTimeout(introSkills, speed);
+                    setTimeout(introSummary, speed);
                 } else {
                     i = 0;
                     setTimeout(introSection3, 500);
@@ -81,7 +82,7 @@
                     setTimeout(introHumour1, speed);
                 } else {
                     i = 0;
-                    setTimeout(introSkills, 1000);
+                    setTimeout(introSummary, 1000);
                 }
             }
         }
