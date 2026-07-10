@@ -6,27 +6,27 @@
     <link rel="stylesheet" href="styles.css">
     <title>William Lewsey</title>
 </head>
-<body onload=introIdentity()>
+<body onload="introIdentity()">
 
     <script>
-        var textIdentityBuilt = false;
-        var textHumour1Built = false;
-        var textSection2Built = false;
-        var textSection3Built = false;
+        let textIdentityBuilt = false;
+        let textHumour1Built = false;
+        let textSkillsBuilt = false;
+        let textSection3Built = false;
 
-        var textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
-        var textHumour1 = "Looking good."
-        var textSection2 = "Hello";
-        var textSection3 = "Test";
+        const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
+        const textHumour1 = "Looking good."
+        const textSkills = "Hello";
+        const textSection3 = "Test";
         
-        var i = 0;
-        var speed = 10;
-        //var audio = new Audio("untitled.mp3");
+        let i = 0;
+        let speed = 10;
+        //let audio = new Audio("untitled.mp3");
 
         function introSection3() {
             if (textSection3Built == false) {
-                var pre = document.createElement("pre");
-                var p = document.createElement("p");
+                const pre = document.createElement("pre");
+                const p = document.createElement("p");
                 p.id = "introText3";
                 pre.appendChild(p);
                 document.body.appendChild(pre);
@@ -34,7 +34,7 @@
                 introSection3();
             } else {
                 if (i < textSection3.length) {
-                    document.getElementById("introText3").innerHTML += textSection3.charAt(i);
+                    document.getElementById("introText3").textContent += textSection3.charAt(i);
                     i++;
                     //audio.play();
                     setTimeout(introSection3, speed);
@@ -43,17 +43,17 @@
         }
 
         function introSkills() {
-            if (textSection2Built == false) {
-                var pre = document.createElement("pre");
-                var p = document.createElement("p");
-                p.id = "introText2";
-                pre.appendChild(p);
-                document.body.appendChild(pre);
-                textSection2Built = true;
+            if (textSkillsBuilt == false) {
+                const preIntroSkills = document.createElement("pre");
+                const pIntroSkills = document.createElement("p");
+                pIntroSkills.id = "idIntroSkills";
+                preIntroSkills.appendChild(pIntroSkills);
+                document.body.appendChild(preIntroSkills);
+                textSkillsBuilt = true;
                 introSkills();
             } else {
-                if (i < textSection2.length) {
-                    document.getElementById("introText2").innerHTML += textSection2.charAt(i);
+                if (i < textSkills.length) {
+                    document.getElementById("idIntroSkills").textContent += textSkills.charAt(i);
                     i++;
                     //audio.play();
                     setTimeout(introSkills, speed);
@@ -66,8 +66,8 @@
 
         function introHumour1() {
             if (textHumour1Built == false) {
-                var preIntroHumour1 = document.createElement("pre");
-                var pIntroHumour1 = document.createElement("p");
+                const preIntroHumour1 = document.createElement("pre");
+                const pIntroHumour1 = document.createElement("p");
                 pIntroHumour1.id = "idIntroHumour1";
                 preIntroHumour1.appendChild(pIntroHumour1);
                 document.body.appendChild(preIntroHumour1);
@@ -75,39 +75,40 @@
                 introHumour1();
             } else {
                 if (i < textHumour1.length) {
-                    document.getElementById("idIntroHumour1").innerHTML += textHumour1.charAt(i);
+                    document.getElementById("idIntroHumour1").textContent += textHumour1.charAt(i);
                     i++;
                     //audio.play();
                     setTimeout(introHumour1, speed);
                 } else {
-                    setTimeout(introPhoto, 500, "imSoGreen.png", 200, 200);
+                    i = 0;
+                    setTimeout(introSkills, 1000);
                 }
             }
         }
 
         function introPhoto(src, width, height) {
-            var imgIntroPhoto = document.createElement("img");
+            const imgIntroPhoto = document.createElement("img");
             imgIntroPhoto.src = src;
             imgIntroPhoto.width = width;
             imgIntroPhoto.height = height;
             document.body.appendChild(imgIntroPhoto);
 
             // Create image
-            var preIntroPhoto = document.createElement("pre");
-            var pIntroPhoto = document.createElement("p");
+            const preIntroPhoto = document.createElement("pre");
+            const pIntroPhoto = document.createElement("p");
             pIntroPhoto.id = "idIntroPhoto";
             preIntroPhoto.appendChild(pIntroPhoto);
             document.body.appendChild(preIntroPhoto);
 
             i = 0;
-            setTimeout(humor1, 1000);
+            setTimeout(introHumour1, 1000);
         }
 
         function introIdentity() {
             // Create first text
             if (textIdentityBuilt == false) {
-                var preIntroIdentity = document.createElement("pre");
-                var pIntroIdentity = document.createElement("p");
+                const preIntroIdentity = document.createElement("pre");
+                const pIntroIdentity = document.createElement("p");
                 pIntroIdentity.id = "idIntroIdentity";
                 preIntroIdentity.appendChild(pIntroIdentity);
                 document.body.appendChild(preIntroIdentity);
@@ -115,7 +116,7 @@
                 introIdentity();
             } else {
                 if (i < textIdentity.length) {
-                    document.getElementById("idIntroIdentity").innerHTML += textIdentity.charAt(i);
+                    document.getElementById("idIntroIdentity").textContent += textIdentity.charAt(i);
                     i++;
                     //audio.play();
                     setTimeout(introIdentity, speed);
