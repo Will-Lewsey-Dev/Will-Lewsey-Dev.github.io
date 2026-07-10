@@ -8,6 +8,7 @@
     </head>
     <body>
         <script>
+            let cursor = null;
 
             const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
             const textHumour1 = "Looking good.";
@@ -29,10 +30,16 @@
 
             function typeText(id, text, speed) {
                 return new Promise(resolve => {
+                    if (cursor) {
+                        cursor.classList.remove("typing");
+                    }
+
                     const pre = document.createElement("pre");
                     pre.id = id;
-                    pre.classList.add("typing");
                     document.body.appendChild(pre);
+
+                    pre.classList.add("typing");
+                    cursor = pre;
 
                     let i = 0;
 
@@ -42,7 +49,6 @@
                             i++;
                             setTimeout(type, speed);
                         } else {
-                            pre.classList.remove("typing");
                             resolve();
                         }
                     }

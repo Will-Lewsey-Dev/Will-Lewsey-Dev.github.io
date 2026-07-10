@@ -19,11 +19,11 @@ pre {
 }
 
 pre.typing::after {
-    content: "█";
-    animation: blink 1s infinite;
+    content: "_";
+    animation: crt 0.5s steps(2, start) infinite;
 }
 
-@keyframes blink {
+@keyframes crt {
     50% {
         opacity: 0;
     }
