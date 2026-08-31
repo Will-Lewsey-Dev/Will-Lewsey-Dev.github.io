@@ -4,17 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="preload" href="imSoGreen.webp" as="image">
         <title>William Lewsey</title>
     </head>
     <body>
         <script>
             let cursor = null;
 
-            const textIdentity = "Name: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
+            const textIdentity = "[REPORT BEGIN]\nName: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
+            
             const textHumour1 = "Looking good.";
 
-            const textSummary = "Making games alone, I have a hand in many aspects of both design and development.";
-            const textSection3 = "Test";
+            const textSummary = "I have a hand in many aspects of both design and development, since I make games alone. I am able to program systems in a variety of languages and design a range of assets such as models, sprites, and audio.";
+
+            const textEveryday = "I spend a lot of my time worldbuilding and designing creatures, characters and stories. It's easy for me to get drawn into weeks of straight writing.";
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -28,7 +31,7 @@
                 document.body.appendChild(imgIntroPhoto);
             }
 
-            function typeText(id, text, speed) {
+            function typeText(id, text) {
                 return new Promise(resolve => {
                     if (cursor) {
                         cursor.classList.remove("typing");
@@ -47,7 +50,7 @@
                         if (i < text.length) {
                             pre.textContent += text.charAt(i);
                             i++;
-                            setTimeout(type, speed);
+                            setTimeout(type, Math.random() * 20 + 1);
                         } else {
                             resolve();
                         }
@@ -58,21 +61,23 @@
             }
 
             async function startIntro() {
-                await typeText("identity", textIdentity, 10);
+                await typeText("identity", textIdentity);
+
+                await wait(1000);
 
                 introPhoto("imSoGreen.webp", 200, 200);
 
                 await wait(1000);
 
-                await typeText("humour", textHumour1, 10);
+                await typeText("humour1", textHumour1);
 
                 await wait(1000);
 
-                await typeText("summary", textSummary, 10);
+                await typeText("summary", textSummary);
 
-                await wait(500);
+                await wait(1000);
 
-                await typeText("section3", textSection3, 10);
+                await typeText("everyday", textEveryday);
             }
 
             startIntro();
