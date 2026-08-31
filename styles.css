@@ -90,7 +90,7 @@ img {
 
     .column:not(:last-child) {
         border-right: none;
-        border-bottom: 1px solid #555;
+        border-bottom: none;
     }
 
     .column pre {
