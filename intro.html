@@ -8,16 +8,25 @@
         <title>William Lewsey</title>
     </head>
     <body>
+
+        <div class="row">
+            <div class="column" id="column1"></div>
+            <div class="column" id="column2"></div>
+            <div class="column" id="column3"></div>
+        </div>
+
         <script>
             let cursor = null;
 
             const textIdentity = "[REPORT BEGIN]\nName: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
-            
+
             const textHumour1 = "Looking good.";
 
             const textSummary = "I have a hand in many aspects of both design and development, since I make games alone. I am able to program systems in a variety of languages and design a range of assets such as models, sprites, and audio.";
 
             const textEveryday = "I spend a lot of my time worldbuilding and designing creatures, characters and stories. It's easy for me to get drawn into weeks of straight writing.";
+
+            const textProjects = "I have worked on several projects both in a team and solo. My team projects have all been based in university with my classmates.";
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -28,10 +37,10 @@
                 imgIntroPhoto.src = src;
                 imgIntroPhoto.width = width;
                 imgIntroPhoto.height = height;
-                document.body.appendChild(imgIntroPhoto);
+                document.getElementById("column1").appendChild(imgIntroPhoto);
             }
 
-            function typeText(id, text) {
+            function typeText(column, id, text, speed = 20) {
                 return new Promise(resolve => {
                     if (cursor) {
                         cursor.classList.remove("typing");
@@ -39,7 +48,7 @@
 
                     const pre = document.createElement("pre");
                     pre.id = id;
-                    document.body.appendChild(pre);
+                    column.appendChild(pre);
 
                     pre.classList.add("typing");
                     cursor = pre;
@@ -61,7 +70,7 @@
             }
 
             async function startIntro() {
-                await typeText("identity", textIdentity);
+                await typeText(column1, "identity", textIdentity);
 
                 await wait(1000);
 
@@ -69,15 +78,19 @@
 
                 await wait(1000);
 
-                await typeText("humour1", textHumour1);
+                await typeText(column1, "humour1", textHumour1);
 
                 await wait(1000);
 
-                await typeText("summary", textSummary);
+                await typeText(column1, "summary", textSummary);
 
                 await wait(1000);
 
-                await typeText("everyday", textEveryday);
+                await typeText(column1, "everyday", textEveryday);
+
+                await wait(1000);
+
+                await typeText(column2, "projects", textProjects);
             }
 
             startIntro();
