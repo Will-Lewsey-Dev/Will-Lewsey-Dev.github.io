@@ -16,7 +16,8 @@
         <div class="row">
             <div class="column" id="column1"></div>
             <div class="column" id="column2"></div>
-            <div class="column" id="column3"></div>
+            <div class="column" id="column3">
+            </div>
         </div>
 
         <footer class="site-footer">
@@ -40,7 +41,7 @@
 
             const textProjects = "I have worked on several projects both in a team and solo. My team projects have all been based in university with my classmates.";
 
-            const projectTest = "Test yipee";
+            const projectTest = "PROSPEXCAVATOR\n---\nA game about mining.";
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -52,6 +53,14 @@
                 imgIntroPhoto.width = width;
                 imgIntroPhoto.height = height;
                 column1.appendChild(imgIntroPhoto);
+            }
+
+            function meshPhoto(src, width, height) {
+                const imgMeshPhoto = document.createElement("img");
+                imgMeshPhoto.src = src;
+                imgMeshPhoto.width = width;
+                imgMeshPhoto.height = height;
+                column3.appendChild(imgMeshPhoto);
             }
 
             function createButton(column, id, text, onClick) {
@@ -97,7 +106,9 @@
 
             function showProjects() {
                 column3.innerHTML = "";
+                meshPhoto("rockMesh.gif", 200, 200);
                 typeText(column3, "projectsContent", projectTest);
+                
             }
 
             async function startIntro() {
