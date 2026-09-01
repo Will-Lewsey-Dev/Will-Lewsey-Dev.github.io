@@ -9,13 +9,25 @@
     </head>
     <body>
 
+        <header class="site-header">
+            William Lewsey
+        </header>
+
         <div class="row">
             <div class="column" id="column1"></div>
             <div class="column" id="column2"></div>
             <div class="column" id="column3"></div>
         </div>
 
+        <footer class="site-footer">
+            <p>© 2026 William Lewsey</p>
+        </footer>
+
         <script>
+            const column1 = document.getElementById("column1");
+            const column2 = document.getElementById("column2");
+            const column3 = document.getElementById("column3");
+
             let cursor = null;
 
             const textIdentity = "[REPORT BEGIN]\nName: William Lewsey\nOccupation: Game Developer\nPhysical Status: Healthy\nMental Status: Stable\n\nVisage Capture:";
@@ -28,6 +40,8 @@
 
             const textProjects = "I have worked on several projects both in a team and solo. My team projects have all been based in university with my classmates.";
 
+            const projectTest = "Test yipee";
+
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
             }
@@ -37,7 +51,19 @@
                 imgIntroPhoto.src = src;
                 imgIntroPhoto.width = width;
                 imgIntroPhoto.height = height;
-                document.getElementById("column1").appendChild(imgIntroPhoto);
+                column1.appendChild(imgIntroPhoto);
+            }
+
+            function createButton(column, id, text, onClick) {
+                const button = document.createElement("button");
+
+                button.id = id;
+                button.textContent = text;
+                button.addEventListener("click", onClick);
+
+                column.appendChild(button);
+
+                return button;
             }
 
             function typeText(column, id, text, speed = 20) {
@@ -59,7 +85,7 @@
                         if (i < text.length) {
                             pre.textContent += text.charAt(i);
                             i++;
-                            setTimeout(type, Math.random() * 20 + 1);
+                            setTimeout(type, Math.random() * speed + 1);
                         } else {
                             resolve();
                         }
@@ -67,6 +93,11 @@
 
                     type();
                 });
+            }
+
+            function showProjects() {
+                column3.innerHTML = "";
+                typeText(column3, "projectsContent", projectTest);
             }
 
             async function startIntro() {
@@ -91,6 +122,11 @@
                 await wait(1000);
 
                 await typeText(column2, "projects", textProjects);
+
+                await wait(1000);
+
+                createButton(column2, "projectsButton", "Projects", showProjects);
+
             }
 
             startIntro();
