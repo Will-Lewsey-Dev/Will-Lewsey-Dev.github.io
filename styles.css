@@ -51,11 +51,20 @@ pre.typing::after {
 }
 
 .column {
-    float: left;
     width: 33.3%;
     padding: 0 4px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+
+    scrollbar-width: none;
+
+    -ms-overflow-style: none;
+}
+
+.column::-webkit-scrollbar {
+    display: none;
 }
 
 .column:not(:last-child) {
@@ -66,14 +75,9 @@ pre.typing::after {
     display: flex;
     align-items: stretch;
     min-height: 0;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 img {
     max-width: 100%;
