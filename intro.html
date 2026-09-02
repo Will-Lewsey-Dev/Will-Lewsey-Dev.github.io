@@ -17,7 +17,7 @@
         <div class="row">
             <div class="column" id="column1"></div>
             <div class="column" id="column2"></div>
-            <div class="column" id="column3"><p>[Null]</p></div>
+            <div class="column" id="column3"></div>
         </div>
 
         <footer class="site-footer">
@@ -84,6 +84,14 @@
                 column.appendChild(button);
 
                 return button;
+            }
+
+            function showNull() {
+                const p = document.createElement("p");
+
+                p.innerHTML = "[Null]";
+
+                column3.appendChild(p);
             }
 
             function typeText(column, id, text, speed = 1) {
@@ -169,6 +177,10 @@
                 await wait(500);
 
                 createButton(column2, "dwellingAfarButton", "The Dwelling Afar", () => showProject("dwellingAfarMesh.gif", 260, 260, "dwellingAfarContent", textDwellingAfar));
+
+                await wait(500);
+
+                showNull();
 
             }
 
