@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <link rel="preload" href="imSoGreen.webp" as="image">
+        <link rel="icon" type="image/png" href="me.png">
         <title>William Lewsey</title>
     </head>
     <body>
@@ -16,8 +17,7 @@
         <div class="row">
             <div class="column" id="column1"></div>
             <div class="column" id="column2"></div>
-            <div class="column" id="column3">
-            </div>
+            <div class="column" id="column3"><p>[Null]</p></div>
         </div>
 
         <footer class="site-footer">
@@ -44,6 +44,15 @@
             const textProspexcavator = "PROSPEXCAVATOR\n---\nA game about mining.";
 
             const textLawGame = "Game of Law\n---\nA game about law.";
+
+            const textAdSomnum = "Ad Somnum\n---\nA game about a hospital.";
+
+            const textYATPS = "You Are The Power Source\n---\nA game about robots.";
+
+            const textChamber = "Chamber\n---\nA game about claustrophobia.";
+
+            const textDwellingAfar = "The Dwelling Afar\n---\nA game about a house.";
+
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -77,7 +86,7 @@
                 return button;
             }
 
-            function typeText(column, id, text, speed = 20) {
+            function typeText(column, id, text, speed = 1) {
                 return new Promise(resolve => {
                     if (cursor) {
                         cursor.classList.remove("typing");
@@ -106,48 +115,60 @@
                 });
             }
 
-            function showProspexcavator() {
+            function showProject(gif, sizeX, sizeY, id, text) {
                 column3.innerHTML = "";
-                meshPhoto("rockMesh.gif", 200, 200);
-                typeText(column3, "prospexcavatorContent", textProspexcavator);
-            }
-
-            function showLawGame() {
-                column3.innerHTML = "";
-                meshPhoto("LawGameMesh.gif", 200, 200);
-                typeText(column3, "lawGameContent", textLawGame);
+                meshPhoto(gif, sizeX, sizeY);
+                typeText(column3, id, text);
             }
 
             async function startIntro() {
                 await typeText(column1, "identity", textIdentity);
 
-                await wait(1000);
+                await wait(1);
 
                 introPhoto("imSoGreen.webp", 200, 200);
 
-                await wait(1000);
+                await wait(1);
 
                 await typeText(column1, "humour1", textHumour1);
 
-                await wait(1000);
+                await wait(1);
 
                 await typeText(column1, "summary", textSummary);
 
-                await wait(1000);
+                await wait(1);
 
                 await typeText(column1, "everyday", textEveryday);
 
-                await wait(1000);
+                await wait(1);
 
                 await typeText(column2, "projects", textProjects);
 
-                await wait(1000);
+                await wait(1);
 
-                createButton(column2, "prospexcavatorButton", "PROSPEXCAVATOR", showProspexcavator);
+                // BUTTONS
+
+                createButton(column2, "prospexcavatorButton", "PROSPEXCAVATOR", () => showProject("rockMesh.gif", 300, 300, "prospexcavatorContent", textProspexcavator));
 
                 await wait(500);
 
-                createButton(column2, "lawGameButton", "Game of Law", showLawGame);
+                createButton(column2, "lawGameButton", "Game of Law", () => showProject("lawGameMesh.gif", 300, 300, "lawGameContent", textLawGame));
+
+                await wait(500);
+
+                createButton(column2, "adSomnumButton", "Ad Somnum", () => showProject("adSomnumMesh.gif", 300, 300, "adSomnumContent", textAdSomnum));
+
+                await wait(500);
+
+                createButton(column2, "YATPSButton", "You Are The Power Source", () => showProject("YATPSMesh.gif", 300, 300, "YATPSContent", textYATPS));
+
+                await wait(500);
+
+                createButton(column2, "chamberButton", "Chamber", () => showProject("chamberMesh.gif", 300, 300, "chamberContent", textChamber));
+
+                await wait(500);
+
+                createButton(column2, "dwellingAfarButton", "The Dwelling Afar", () => showProject("dwellingAfarMesh.gif", 260, 260, "dwellingAfarContent", textDwellingAfar));
 
             }
 
