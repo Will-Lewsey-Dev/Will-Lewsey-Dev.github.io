@@ -41,7 +41,9 @@
 
             const textProjects = "I have worked on several projects both in a team and solo. My team projects have all been based in university with my classmates.";
 
-            const projectTest = "PROSPEXCAVATOR\n---\nA game about mining.";
+            const textProspexcavator = "PROSPEXCAVATOR\n---\nA game about mining.";
+
+            const textLawGame = "Game of Law\n---\nA game about law.";
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -104,11 +106,16 @@
                 });
             }
 
-            function showProjects() {
+            function showProspexcavator() {
                 column3.innerHTML = "";
                 meshPhoto("rockMesh.gif", 200, 200);
-                typeText(column3, "projectsContent", projectTest);
-                
+                typeText(column3, "prospexcavatorContent", textProspexcavator);
+            }
+
+            function showLawGame() {
+                column3.innerHTML = "";
+                meshPhoto("LawGameMesh.gif", 200, 200);
+                typeText(column3, "lawGameContent", textLawGame);
             }
 
             async function startIntro() {
@@ -136,7 +143,11 @@
 
                 await wait(1000);
 
-                createButton(column2, "projectsButton", "Projects", showProjects);
+                createButton(column2, "prospexcavatorButton", "PROSPEXCAVATOR", showProspexcavator);
+
+                await wait(500);
+
+                createButton(column2, "lawGameButton", "Game of Law", showLawGame);
 
             }
 
