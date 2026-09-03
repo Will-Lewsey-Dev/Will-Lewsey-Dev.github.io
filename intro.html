@@ -39,9 +39,11 @@
 
             const textEveryday = "I spend a lot of my time worldbuilding and designing creatures, characters and stories. It's easy for me to get drawn into weeks of straight writing.";
 
-            const textProjects = "I have worked on several projects both in a team and solo. My team projects have all been based in university with my classmates.";
+            const textProjects = "I have worked on several games both in a team and by myself. My team projects have all been based in university with my classmates. Two of my solo projects were made for the GMTK Game Jam in 2025 and 2026. \n\nMuch of my work has been towards worldbuilding and workshopping new ideas.\n\nHere is a list of all my projects:";
 
             const textProspexcavator = "PROSPEXCAVATOR\n---\nA game about mining.";
+
+            const textDissertation = "Procedurally Generated 3D Indoor Environments\n---\nMy Dissertation.";
 
             const textChamber = "Chamber\n---\nA game about claustrophobia.";
 
@@ -162,6 +164,10 @@
                 showNull();
 
                 createButton(column2, "prospexcavatorButton", "PROSPEXCAVATOR", () => showProject("rockMesh.gif", 300, 300, "prospexcavatorContent", textProspexcavator));
+
+                await wait(500);
+
+                createButton(column2, "dissertationButton", "My Dissertation", () => showProject("dissertationMesh.gif", 300, 300, "dissertationContent", textDissertation));
 
                 await wait(500);
 
