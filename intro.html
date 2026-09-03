@@ -43,16 +43,19 @@
 
             const textProspexcavator = "PROSPEXCAVATOR\n---\nA game about mining.";
 
-            const textLawGame = "Game of Law\n---\nA game about law.";
+            const textChamber = "Chamber\n---\nA game about claustrophobia.";
 
             const textAdSomnum = "Ad Somnum\n---\nA game about a hospital.";
 
+            const textLawGame = "Game of Law\n---\nA game about law.";
+
             const textYATPS = "You Are The Power Source\n---\nA game about robots.";
 
-            const textChamber = "Chamber\n---\nA game about claustrophobia.";
+            const textASinisterTruth = "A Sinister Truth\n---\nA game about a priest's missing family.";
 
             const textDwellingAfar = "The Dwelling Afar\n---\nA game about a house.";
 
+            const textStickmanAndHisHat = "The Stickman and His Hat\n---\nA game about a stickman losing his hat.";
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -162,11 +165,15 @@
 
                 await wait(500);
 
-                createButton(column2, "lawGameButton", "Game of Law", () => showProject("lawGameMesh.gif", 300, 300, "lawGameContent", textLawGame));
+                createButton(column2, "chamberButton", "Chamber", () => showProject("chamberMesh.gif", 300, 300, "chamberContent", textChamber));
+
+                await wait(500);
+                
+                createButton(column2, "adSomnumButton", "Ad Somnum", () => showProject("adSomnumMesh.gif", 300, 300, "adSomnumContent", textAdSomnum));
 
                 await wait(500);
 
-                createButton(column2, "adSomnumButton", "Ad Somnum", () => showProject("adSomnumMesh.gif", 300, 300, "adSomnumContent", textAdSomnum));
+                createButton(column2, "lawGameButton", "Game of Law", () => showProject("lawGameMesh.gif", 300, 300, "lawGameContent", textLawGame));
 
                 await wait(500);
 
@@ -174,13 +181,15 @@
 
                 await wait(500);
 
-                createButton(column2, "chamberButton", "Chamber", () => showProject("chamberMesh.gif", 300, 300, "chamberContent", textChamber));
+                createButton(column2, "aSinisterTruthButton", "A Sinister Truth", () => showProject("aSinisterTruthMesh.gif", 260, 260, "aSinisterTruthContent", textASinisterTruth));
 
                 await wait(500);
 
-                createButton(column2, "dwellingAfarButton", "The Dwelling Afar", () => showProject("dwellingAfarMesh.gif", 260, 260, "dwellingAfarContent", textDwellingAfar));
+                createButton(column2, "dwellingAfarButton", "The Dwelling Afar", () => showProject("dwellingAfarMesh.gif", 260, 260, "dwellingAfarContent", textDwellingAfar)); 
 
                 await wait(500);
+
+                createButton(column2, "stickmanHatButton", "The Stickman and His Hat", () => showProject("stickmanHatMesh.gif", 100, 100, "stickmanHatContent", textStickmanAndHisHat)); 
 
             }
 
