@@ -49,15 +49,15 @@
 
             const textAdSomnum = "Ad Somnum\n---\nA game about a hospital.";
 
-            const textLawGame = "Game of Law\n---\nA game about law.";
+            const textLawGame = "Game of Law\n---\nOne of my favourite projects I have made. This game was made as a duo and follows the very mundane life of John Law, a businessman who must decide whether the sentences of criminals are of justified length. He must walk from his flat to work and back every day.Every morning he receives a letter regarding his performance and must keep it high or he will face consequences.";
 
-            const textYATPS = "You Are The Power Source\n---\nA game about robots.";
+            const textYATPS = "You Are The Power Source\n---\nThis game was made in university with a few classmates. It follows two rogue robots, Big and Small, trying to escape a facility. They need to complete puzzles to open security doors in order to leave.\n\nThe roles in this project were mostly shared and everyone had a hand in most of the development processes. After making A Sinister Truth, I was very confident in leading the team once more in developing a premise and gameplay elements. This project allowed me to learn valuable lessons in managing team discipline and disagreements. However, all is well that ends well, and this project has never been forgotten.";
 
-            const textASinisterTruth = "A Sinister Truth\n---\nA game about a priest's missing family.";
+            const textASinisterTruth = "A Sinister Truth\n---\nMy first solo game I made at home. An short experimental push of the boat to delve into making games by myself. The game follows a priest, Father Cain* who wakes up in an empty house with his wife and daughter missing. He must travel to his church in search of where his family may have disappeared to.\n\nThis was a fun project as it had me reverse engineering The Dwelling Afar's unreal engine 4 blueprints and putting together my own code. It also allowed me to explore user interface, as well as deeper into audio.";
 
-            const textDwellingAfar = "The Dwelling Afar\n---\nA game about a house.";
+             const textDwellingAfar = "The Dwelling Afar\n---\nThe first 3D game I made in university as part of the team 'Jelly Doughnut Games'. This game is about escaping a house in the woods by solving puzzles.\n\nI again contributed the premise of the game as well as leading the audio design and implementation. Most of the audio in this game was foley work that I recorded myself, such as furniture sounds and music.\n\nThis game was a big stepping stone for me, as the programmer on my team made some decent code which allowed me to read into how Unreal Engine 4 blueprints really worked. The code was far better than The Stickman and His Hat, so I took the opportunity to analyse it and understand how I can make my own 3D games from scratch.";
 
-            const textStickmanAndHisHat = "The Stickman and His Hat\n---\nA game about a stickman losing his hat.";
+            const textStickmanAndHisHat = "The Stickman and His Hat\n---\nThe 2D first game I made in university and my first game made in Unreal Engine 4. This game is about a stickman who loses his hat and must get it back. He fights creatures and collects soup cans to continue his search.\n\nI was part of a team that I titled 'The Curators'. I led the team by coming up with the idea and setting and appointed myself to be in charge of the game's art and design.\n\nI hand drew the stickman and his movement animations, as well as the creatures in the game and the level terrain and decorations. I had previously considered doing Game Art instead of Game Development as a degree, but pivoted as I realised my varied skillset would be better developed as a whole instead of specialising in art. This later turned out to be a wonderful choice.";
 
             function wait(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
@@ -99,7 +99,7 @@
                 column3.appendChild(p);
             }
 
-            function typeText(column, id, text, speed = 1) {
+            function typeText(column, id, text, speed) {
                 return new Promise(resolve => {
                     if (cursor) {
                         cursor.classList.remove("typing");
@@ -163,39 +163,39 @@
 
                 showNull();
 
-                createButton(column2, "prospexcavatorButton", "PROSPEXCAVATOR", () => showProject("rockMesh.gif", 300, 300, "prospexcavatorContent", textProspexcavator));
+                createButton(column2, "prospexcavatorButton", "PROSPEXCAVATOR", () => showProject("animations/rockMesh.gif", 300, 300, "prospexcavatorContent", textProspexcavator));
 
                 await wait(500);
 
-                createButton(column2, "dissertationButton", "My Dissertation", () => showProject("dissertationMesh.gif", 300, 300, "dissertationContent", textDissertation));
+                createButton(column2, "dissertationButton", "My Dissertation", () => showProject("animations/dissertationMesh.gif", 300, 300, "dissertationContent", textDissertation));
 
                 await wait(500);
 
-                createButton(column2, "chamberButton", "Chamber", () => showProject("chamberMesh.gif", 300, 300, "chamberContent", textChamber));
+                createButton(column2, "chamberButton", "Chamber", () => showProject("animations/chamberMesh.gif", 300, 300, "chamberContent", textChamber));
 
                 await wait(500);
                 
-                createButton(column2, "adSomnumButton", "Ad Somnum", () => showProject("adSomnumMesh.gif", 300, 300, "adSomnumContent", textAdSomnum));
+                createButton(column2, "adSomnumButton", "Ad Somnum", () => showProject("animations/adSomnumMesh.gif", 300, 300, "adSomnumContent", textAdSomnum));
 
                 await wait(500);
 
-                createButton(column2, "lawGameButton", "Game of Law", () => showProject("lawGameMesh.gif", 300, 300, "lawGameContent", textLawGame));
+                createButton(column2, "lawGameButton", "Game of Law", () => showProject("animations/lawGameMesh.gif", 300, 300, "lawGameContent", textLawGame));
 
                 await wait(500);
 
-                createButton(column2, "YATPSButton", "You Are The Power Source", () => showProject("YATPSMesh.gif", 300, 300, "YATPSContent", textYATPS));
+                createButton(column2, "YATPSButton", "You Are The Power Source", () => showProject("animations/YATPSMesh.gif", 300, 300, "YATPSContent", textYATPS));
 
                 await wait(500);
 
-                createButton(column2, "aSinisterTruthButton", "A Sinister Truth", () => showProject("aSinisterTruthMesh.gif", 260, 260, "aSinisterTruthContent", textASinisterTruth));
+                createButton(column2, "aSinisterTruthButton", "A Sinister Truth", () => showProject("animations/aSinisterTruthMesh.gif", 260, 260, "aSinisterTruthContent", textASinisterTruth));
 
                 await wait(500);
 
-                createButton(column2, "dwellingAfarButton", "The Dwelling Afar", () => showProject("dwellingAfarMesh.gif", 260, 260, "dwellingAfarContent", textDwellingAfar)); 
+                createButton(column2, "dwellingAfarButton", "The Dwelling Afar", () => showProject("animations/dwellingAfarMesh.gif", 260, 260, "dwellingAfarContent", textDwellingAfar)); 
 
                 await wait(500);
 
-                createButton(column2, "stickmanHatButton", "The Stickman and His Hat", () => showProject("stickmanHatMesh.gif", 100, 100, "stickmanHatContent", textStickmanAndHisHat)); 
+                createButton(column2, "stickmanHatButton", "The Stickman and His Hat", () => showProject("animations/stickmanHatMesh.gif", 100, 100, "stickmanHatContent", textStickmanAndHisHat)); 
 
             }
 
